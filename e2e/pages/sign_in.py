@@ -15,5 +15,5 @@ class SignIn:
     def fill_password(self, password: str) -> None:
         self.page.locator(self.input_password).fill(password)
 
-    def click_sign_in(self: str) -> None:
+    def click_sign_in(self) -> None:
         self.page.locator(self.button_submit).click()

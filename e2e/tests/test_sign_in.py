@@ -1,10 +1,10 @@
 from playwright.sync_api import Page
 from pages.sign_in import SignIn
+from auth.session import users, sign_in_url
 
-sign_in_url = 'https://realworld.svelte.dev/login'
-user_email = 'automated@test.dev'
-user_password = 'automatedtest'
-wrong_password = 'wrongpassword'
+user_email = users['test']['email']
+user_password = users['test']['password']
+wrong_password = f"${users['test']['password']}abc"
 
 def test_sign_in_success(page: Page) -> None:
     page.goto(sign_in_url)
