@@ -4,7 +4,7 @@ from auth.session import users, sign_in_url
 
 user_email = users['test']['email']
 user_password = users['test']['password']
-wrong_password = f"${users['test']['password']}abc"
+wrong_password = f"{users['test']['password']}abc"
 
 def test_sign_in_success(page: Page) -> None:
     page.goto(sign_in_url)
