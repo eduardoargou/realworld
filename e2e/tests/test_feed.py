@@ -40,3 +40,9 @@ def test_open_article(page: Page) -> None:
     page.goto('/')
     feed = ArticlesFeed(page)
     feed.open_first_article()
+
+def test_open_profile(page: Page) -> None:
+    load_session(page, 'test')
+    page.goto('/')
+    feed = ArticlesFeed(page)
+    feed.open_first_profile()
