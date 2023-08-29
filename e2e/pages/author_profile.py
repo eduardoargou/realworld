@@ -19,7 +19,9 @@ class AuthorProfile:
             expect(articles.nth(i)).to_be_visible()
 
     def open_favorites(self) -> None:
-        self.page.locator(self.favorites).click()
+        with self.page.expect_response('**/favorites/*') as res:
+            self.page.locator(self.favorites).click()
+        assert res.value.status == 200
 
     def prepare_unfollow(self) -> None:
         button = self.page.locator(self.button_follow)

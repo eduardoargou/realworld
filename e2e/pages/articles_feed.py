@@ -8,6 +8,7 @@ class ArticlesFeed:
     my_feed = 'a.nav-link[href="/?tab=feed"]'
     article_link = 'a.preview-link > h1'
     profile_link = 'a.author'
+    my_profile = 'li.nav-item > a[href*="profile"]'
 
     def __init__(self, page: Page) -> None:
         self.page = page
@@ -62,3 +63,8 @@ class ArticlesFeed:
         with self.page.expect_response('**/profile/*') as res:
             self.page.locator(self.profile_link).nth(0).click()
         assert res.value.status == 200 
+
+    def open_my_profile(self) -> None:
+        with self.page.expect_response('**/profile/*') as res:
+            self.page.locator(self.my_profile).click()
+        assert res.value.status == 200
