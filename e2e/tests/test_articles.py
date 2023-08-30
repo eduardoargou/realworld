@@ -33,9 +33,6 @@ def test_remove_article(page: Page) -> None:
         new_article.click_publish()
     assert res.value.status == 200
     # Remove created article
-    page.goto('/')
-    feed = ArticlesFeed(page)
-    feed.open_first_article()
     article = ViewArticle(page)
     article.remove()
 
@@ -49,9 +46,6 @@ def test_edit_article(page: Page) -> None:
         new_article.click_publish()
     assert res.value.status == 200
     # Edit article
-    page.goto('/')
-    feed = ArticlesFeed(page)
-    feed.open_first_article()
     article = ViewArticle(page)
     article.click_edit()
     body = generate_article_text()
