@@ -23,5 +23,11 @@ class NewArticle:
     def fill_tags(self, text: str) -> None:
         self.page.locator(self.input_tags).fill(text)
 
+    def fill_in_example(self) -> None:
+        self.fill_title('Testing')
+        self.fill_description('Description')
+        self.fill_body('Hello World!')
+        self.fill_tags('test')
+
     def click_publish(self) -> None:
         self.page.locator(self.button_publish).click()
